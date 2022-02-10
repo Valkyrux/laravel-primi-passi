@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ Route::currentRouteName() }}</title>
     <style>
         header {
             display: flex;
@@ -36,21 +37,21 @@
             text-align: center;
         }
     </style>
-    <title>{{ Route::currentRouteName() }}</title>
 </head>
 <body>
     <header>
         <h2>Hello World</h2>
         <nav>
             <ul>
-                <li><a href="{{ route("Home") }}" class="active"> {{ $home }}</a></li>
+                <li><a href="{{ route("Home") }}"> {{ $home }}</a></li>
                 @foreach ($other_voices as $index => $voice)
                     @php $route_value = "voice_".$index @endphp
-                    <li><a href="{{ route("Voce ".($index+1)) }}">{{ $voice }}</a></li>
+                    <li><a href="{{ route("Voce ".($index+1)) }}" class="{{($index===1)?"active":""}}">{{ $voice }}</a></li>
                 @endforeach
             </ul>
         </nav>
     </header>
     <h1>Sei sulla rotta {{ Route::currentRouteName() }}</h1>
 </body>
+</html>
 </html>

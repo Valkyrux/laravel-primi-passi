@@ -43,14 +43,15 @@
         <h2>Hello World</h2>
         <nav>
             <ul>
-                <li><a href="{{ route("Home") }}" class="active"> {{ $home }}</a></li>
+                <li><a href="{{ route("Home") }}"> {{ $home }}</a></li>
                 @foreach ($other_voices as $index => $voice)
                     @php $route_value = "voice_".$index @endphp
-                    <li><a href="{{ route("Voce ".($index+1)) }}">{{ $voice }}</a></li>
+                    <li><a href="{{ route("Voce ".($index+1)) }}" class="{{($index===0)?"active":""}}">{{ $voice }}</a></li>
                 @endforeach
             </ul>
         </nav>
     </header>
     <h1>Sei sulla rotta {{ Route::currentRouteName() }}</h1>
 </body>
+</html>
 </html>
